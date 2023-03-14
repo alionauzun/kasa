@@ -1,5 +1,6 @@
 //j'importe le composant Link de react-router-dom pour pouvoir créer un lien vers une autre page
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import styled from 'styled-components' 
 import colors from '../../utils/style/colors.js'
 
@@ -14,6 +15,14 @@ export default function Card({id, title, cover}) {
 		</StyledLink>
 	)
 }
+
+//Je définis les types de props que je souhaite recevoir pour le composant Card
+Card.defaultProps = {
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    cover: PropTypes.string.isRequired,
+}
+
 
 const StyledLink = styled(Link)`
     justify-content: center;
