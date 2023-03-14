@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+//----ce fichier est le point d'entrée de l'application----//
 
+//----importation des composants----//
+import Home from './pages/Home';
+import About from './pages/About';
+import Error from './components/Error';
+import Accommodations from './pages/Accommodations';
+
+//----importation des librairies----//
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+//----importation des ressources----//
+const router = createBrowserRouter([
+	{
+		index : true,
+		element: <Home />
+	},
+	{
+		path: "/accomodation/:id",
+		element: <Accommodations />
+	},
+	{
+		path: '/about',
+		element: <About />
+	},
+	{
+        //ici j'ai mis un wildcard pour que toutes les autres routes soient redirigées vers la page d'erreur
+		path: "*",
+		element: <Error />
+	},
+]);
+
+//----définition du composant principal----//
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<RouterProvider router={router}/>
+		</>
+	);
 }
 
 export default App;
