@@ -1,4 +1,4 @@
-//----ce fichier est le point d'entrée de l'application----//
+//----ce fichier est le composant principal de l'application----//
 
 //----importation des composants----//
 import Home from './pages/Home';
@@ -9,7 +9,7 @@ import Accommodations from './pages/Accommodations';
 //----importation des librairies----//
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-//----importation des ressources----//
+//----définition des routes----//
 const router = createBrowserRouter([
 	{
 		index : true,
