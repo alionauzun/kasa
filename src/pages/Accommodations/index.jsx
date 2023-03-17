@@ -1,6 +1,6 @@
 //import des composants
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import datas from '../../data/data'
 import Header from "../../components/Header";
 import Slider from "../../components/Carousel"
@@ -13,19 +13,21 @@ import colors from '../../utils/style/colors';
 
 //je crée le composant Accommodation qui va afficher les informations d'un logement en fonction de l'id de celui-ci
 export default function Accommodation() {
-
-	//je crée un state pour récupérer les images
 	const [imageSlider, setImageSlider] = useState([]);
-
     //je récupère l'id de l'accommodation dans l'url
 	const idAccommodation = useParams('id').id;
 	const dataCurrentAccommodation = datas.filter(data => data.id === idAccommodation);
 	
-    //----je récupère les images du logement en fonction de l'id----//
-	useEffect(() => {
-		const dataCurrentAccommodation = datas.filter(data => data.id === idAccommodation);
+    //je récupère les images du logement dans le state imageSlider
+    useEffect(() => {
 		setImageSlider(dataCurrentAccommodation[0].pictures);
-	}, [idAccommodation]);
+    }, [dataCurrentAccommodation]
+    )
+
+    //je redirige l'utilisateur vers la page d'erreur 404 si l'id de l'accommodation n'existe pas
+    if(dataCurrentAccommodation.length === 0) {
+        return <Navigate to="*" />
+    }
 
     //----je récupère les informations du logement----//
 	const name = dataCurrentAccommodation[0].host.name.split(' '); 
@@ -34,7 +36,6 @@ export default function Accommodation() {
 	const equipments = dataCurrentAccommodation[0].equipments;
 
 	return (
-        //je crée un composant qui va afficher le header, le slider et le contenu du logement
 		<>
 			<Header/>
 			<Slider imageSlider={imageSlider}/>

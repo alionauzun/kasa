@@ -1,15 +1,15 @@
-//----ce fichier est le composant principal de l'application----//
+// Dans ce fichier, je définis les routes de l'application et je crée le composant App qui est le composant racine--//
 
-//----importation des composants----//
+//----importation des composants depuis les répertoires pages et components----//
 import Home from './pages/Home';
 import About from './pages/About';
 import Error from './components/Error';
 import Accommodations from './pages/Accommodations';
 
-//----importation des librairies----//
+//----importation des librairies de React Router pour définir les routes de l'application----//
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-//----définition des routes----//
+//----définition de l'objet router qui contient les routes de l'application----//
 const router = createBrowserRouter([
 	{
 		index : true,
@@ -24,13 +24,13 @@ const router = createBrowserRouter([
 		element: <About />
 	},
 	{
-        //ici j'ai mis un wildcard pour que toutes les autres routes soient redirigées vers la page d'erreur
+        //la route par défaut qui est affichée lorsque l'URL ne correspond à aucune route définie
 		path: "*",
 		element: <Error />
 	},
 ]);
 
-//----définition du composant principal----//
+//"RouterProvider" est un composant de React Router qui permet de rendre accessibles les routes à tous les composants de l'application
 export default function App() {
 	return (
 		<>

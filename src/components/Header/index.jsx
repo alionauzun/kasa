@@ -18,7 +18,7 @@ export default function Header() {
 const StyledHeader = styled.header`
       font-family: 'Montserrat', sans-serif;
       width: 85%;
-      margin: auto;
+      margin: 0 auto;
       display: flex;
       flex-direction: row;
       align-items: center;

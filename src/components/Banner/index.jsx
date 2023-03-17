@@ -1,27 +1,23 @@
 //----Banner component----//
 
-import { useLocation } from 'react-router-dom';//récupérer l'url de la page sur laquelle je suis 
-import { useEffect, useState } from 'react';//useEffect pour pouvoir exécuter une fonction au chargement de la page et useState pour créer un state
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import imageHome from '../../assets/IMG-01.20.22.webp';
 import aboutImage from '../../assets/kalen-emsley-Bkci_8qcdvQ-unsplas.webp';
 
 //je crée le composant Banner qui va afficher le texte sur la page home et ne rien afficher sur la page about
 export default function Banner() {
-    //setAboutPage est un state qui va permettre de savoir si je suis sur la page about ou non
+    //le hook "useState" pour définir un état "aboutPage"
 	const [aboutPage, setAboutPage] = useState(false);
-
-    //useLocation est une fonction qui va me permettre de récupérer l'url de la page sur laquelle je suis
 	const location = useLocation();
 
-
-    //----useEffect va me permettre d'exécuter une fonction au chargement de la page----//
+    //le hook "useEffect" pour définir l'état "aboutPage" en fonction de la route actuelle de l'utilisateur
 	useEffect(() => {
 		if(location.pathname === '/about'){
 			setAboutPage(true)
 		};
-		// eslint-disable-next-line 
-	}, [])
+	}, [location.pathname])
     return (
 <StyledBanner>
         <section className={aboutPage ? 'banner_about' : 'banner'}>

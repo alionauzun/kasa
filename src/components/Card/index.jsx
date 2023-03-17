@@ -9,7 +9,7 @@ import colors from '../../utils/style/colors.js'
 export default function Card({id, title, cover}) {
     
     return (
-        <StyledLink to={`/accomodation/${id}`} className="gallery_card">
+        <StyledLink to={`/accomodation/${id}`} >
 			<img src={cover} alt={title} />
 			<h3>{title}</h3>	
 		</StyledLink>

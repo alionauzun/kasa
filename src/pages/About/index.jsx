@@ -4,13 +4,13 @@ import Banner from '../../components/Banner';
 import Collapse from '../../components/Collapse';
 import aboutDatas from '../../data/aboutData';
 import Footer from '../../components/Footer';
-import PropTypes from 'prop-types';
 import styled from "styled-components";
 
-export default function About({id, title, content}) {
+export default function About() {
 
 	
 	return (
+		<>
 		<StyledAbout>
 			<Header />
 			<Banner />
@@ -25,13 +25,8 @@ export default function About({id, title, content}) {
 			</StyledMain>
 			<Footer />
 		</StyledAbout>
+		</>
 	)
-}
-//je définis les types de props que je souhaite recevoir pour le composant About
-About.defaultProps = {
-	id: PropTypes.number.isRequired,
-	title: PropTypes.string.isRequired,
-	content: PropTypes.string.isRequired,
 }
 
 const StyledMain = styled.div`
@@ -42,11 +37,9 @@ const StyledMain = styled.div`
 `
 
 const StyledAbout = styled.div`
-    .about_main {
-        font-family: 'Montserrat', sans-serif;
-    }
+    font-family: 'Montserrat', sans-serif;
     .about_main_collapse {
-        width: 85%;
+        width: 70%;
     @media screen and (max-width: 550px){
         width: 95%;
     }

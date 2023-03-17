@@ -22,6 +22,7 @@ const FooterContainer = styled.footer`
     width: 100%;
     height: 209px;
     margin-top: 100px;
+    position: absolute;
     img {
         width: 122px;
         height: 150px;

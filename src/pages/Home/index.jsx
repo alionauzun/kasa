@@ -9,7 +9,7 @@ function Home() {
 	return (
 		<StyleSheet>
 			<Header />
-      <Banner />
+            <Banner />
 			<Gallery />
 			<Footer />
 		</StyleSheet>
@@ -18,5 +18,5 @@ function Home() {
 export default Home
 
 const StyleSheet = styled.div`
-  font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 `
