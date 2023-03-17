@@ -55,7 +55,7 @@ const Carousel = styled.section`
     background-repeat: no-repeat;
     overflow: hidden;
     @media (max-width: 768px) {
-        width: 100%;
+        width: 95%;
         height: 300px;
     }
 

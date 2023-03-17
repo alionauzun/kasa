@@ -3,8 +3,8 @@ import arrow from '../../assets/arrow.png';
 import { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
+import propsType from 'prop-types';
 
-//je crée le composant Collapse qui va afficher le titre et le contenu de la section en question
 //la props index correspond à l'index de la section dans le tableau de sections
 export default function Collapse({title, content,index}) {
 
@@ -23,8 +23,6 @@ export default function Collapse({title, content,index}) {
     const handleToggle = () => {
         setToggle(!toggle);
     }
-
-
     return (
         <>
             <StyledCollapse index={index} height={height}>
@@ -52,6 +50,13 @@ export default function Collapse({title, content,index}) {
         </>
     )
 }
+//je définis les props par défaut du composant Collapse 
+Collapse.defaultProps = {
+    title: propsType.string.isRequired,
+    content: propsType.string.isRequired,
+    index: propsType.number.isRequired
+}
+
 
 const StyledCollapse = styled.div`
     background-color: ${colors.secondary};
@@ -90,7 +95,7 @@ const StyledCollapse = styled.div`
     .collapse_content {
         padding: 20px 15px;
         background-color: ${colors.tertiary};
-        border-radius:10px 10px;
+        border-radius: 0 0 10px 10px;
         visibility: visible;
         font-weight: 300;
         letter-spacing: 0.4px;
