@@ -6,10 +6,10 @@ import styled from 'styled-components';
 import imageHome from '../../assets/IMG-01.20.22.webp';
 import aboutImage from '../../assets/kalen-emsley-Bkci_8qcdvQ-unsplas.webp';
 
-//je crée le composant Banner qui va afficher le texte sur la page home et ne rien afficher sur la page about
 export default function Banner() {
     //le hook "useState" pour définir un état "aboutPage"
 	const [aboutPage, setAboutPage] = useState(false);
+    //le hook "useLocation" pour récupérer la route actuelle de l'utilisateur
 	const location = useLocation();
 
     //le hook "useEffect" pour définir l'état "aboutPage" en fonction de la route actuelle de l'utilisateur

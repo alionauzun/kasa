@@ -7,17 +7,17 @@ import propsType from 'prop-types';
 
 //la props index correspond à l'index de la section dans le tableau de sections
 export default function Collapse({title, content,index}) {
-
+//toggle permet de savoir si la section est depliée ou non
     const [toggle, setToggle] = useState(false);
 
-//j'ajoute un nouvel état height qui stockera la hauteur de la section, initialisé à 0
+//height stockera la hauteur de la section
     const [height, setHeight] = useState(0);
-    const contentRef = useRef(null);//je crée une référence pour le contenu de la section
+    const contentRef = useRef(null);//je crée une référence pour le contenu de la section qui sera affiché ou non en fonction de l'état du state toggle 
 
 //useEffect mettra à jour la hauteur de la section en fonction de l'état du state toggle 
     useEffect(() => {
         setHeight(toggle ? contentRef.current.scrollHeight : 0);//si toggle est true, la hauteur de la section sera égale à la hauteur du contenu, sinon elle sera égale à 0
-    }, [toggle])
+    }, [toggle])  
 
 //handleToggle va permettre de changer l'état du state toggle
     const handleToggle = () => {

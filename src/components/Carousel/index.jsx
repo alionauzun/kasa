@@ -9,12 +9,13 @@ export default function Slider({imageSlider}) {
 
     const [currentIndex, setCurrentIndex] = useState(0)
 
+//je crée une fonction qui va incrémenter l'index du state currentIndex et qui va remettre l'index à 0 si l'index est égal à la longueur du tableau imageSlider 
     const nextSlide = () => {
         setCurrentIndex(currentIndex + 1)
         if(currentIndex === imageSlider.length - 1)
             setCurrentIndex(0)
     }
-
+//fonction qui va décrémenter 
     const prevSlide = () => {
         setCurrentIndex(currentIndex - 1)
         if(currentIndex === 0)

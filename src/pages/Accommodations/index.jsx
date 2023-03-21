@@ -11,7 +11,7 @@ import redStar from '../../assets/red_star.png';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
 
-//je crée le composant Accommodation qui va afficher les informations d'un logement en fonction de l'id de celui-ci
+//afficher les informations d'un logement en fonction de l'id de celui-ci
 export default function Accommodation() {
 	const [imageSlider, setImageSlider] = useState([]);
     //je récupère l'id de l'accommodation dans l'url
@@ -19,12 +19,13 @@ export default function Accommodation() {
 	const dataCurrentAccommodation = datas.filter(data => data.id === idAccommodation);
 	
     //je récupère les images du logement dans le state imageSlider
+    //je le fais dans un useEffect pour éviter une boucle infinie
     useEffect(() => {
-		setImageSlider(dataCurrentAccommodation[0].pictures);
+        setImageSlider(dataCurrentAccommodation[0].pictures);
     }, [dataCurrentAccommodation]
     )
-
-    //je redirige l'utilisateur vers la page d'erreur 404 si l'id de l'accommodation n'existe pas
+    
+    //je redirige l'utilisateur vers la page d'erreur 404 si l'id de l'accommodation n'existe pas dans le tableau datas
     if(dataCurrentAccommodation.length === 0) {
         return <Navigate to="*" />
     }

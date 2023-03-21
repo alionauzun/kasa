@@ -17,6 +17,7 @@ export default function About() {
 			<StyledMain>
 				{aboutDatas.map(data => {
 					return (
+						//Les clés aident React à identifier quels éléments d’une liste ont changé, ont été ajoutés ou supprimés  
 						<div key={data.id} className="about_main_collapse">
 							<Collapse title={data.title} content={data.content} />
 						</div>
