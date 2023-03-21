@@ -4,12 +4,15 @@ import { useState } from 'react'
 
 import styled from 'styled-components'
 
-//je crée le composant Slider qui va afficher les images du logement en fonction de l'index du state currentIndex
+//Le composant Slider prend en props un tableau d'images
 export default function Slider({imageSlider}) {
 
+    //et l'etat currentIndex va permettre de savoir l'index de l'image acutellement affichée dans le carousel
     const [currentIndex, setCurrentIndex] = useState(0)
 
-//je crée une fonction qui va incrémenter l'index du state currentIndex et qui va remettre l'index à 0 si l'index est égal à la longueur du tableau imageSlider 
+//je crée deux fonction pour permettre la navigation entre les images
+
+//fonction pour incrémenter l'index du state currentIndex et qui va remettre l'index à 0 si l'index est égal à la longueur du tableau imageSlider 
     const nextSlide = () => {
         setCurrentIndex(currentIndex + 1)
         if(currentIndex === imageSlider.length - 1)
@@ -23,8 +26,10 @@ export default function Slider({imageSlider}) {
     }
 
     return (
+        //j'affiche l'image actuelle en fonction de l'index du state currentIndex a l'aide de l'attriibut style qui utilise la ptopriété backgroundImage/
         <Carousel style={{backgroundImage : `url(${imageSlider[currentIndex]})`}} className='carousel'>
             {imageSlider.length > 1 && 
+            //si le tableau imageSlider contient plus d'une image, j'affiche les flèches de navigation et le compteur d'images
                 <>
                     <img 
                         className='carousel_arrow_right' 
@@ -84,9 +89,8 @@ const Carousel = styled.section`
     p {
         position: absolute;
         bottom: 0;
-        right: 0;
+        right: 50%;
         padding: 10px;
-        background-color: rgba(0, 0, 0, 0.5);
         color: white;
         @media (max-width: 768px) {
             position: absolute;
